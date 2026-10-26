@@ -1,0 +1,28 @@
+/* ... (keep existing styles) ... */
+
+.file-attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.85em;
+}
+
+.file-icon {
+  display: flex;
+  align-items: center;
+}
+
+.file-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size {
+  opacity: 0.7;
+}

@@ -1,0 +1,31 @@
+<div class="chat-container">
+  <div class="messages-container">
+    <app-message *ngFor="let message of messages" [message]="message"></app-message>
+  </div>
+  
+  <div class="input-container">
+    <div *ngIf="selectedFile" class="file-preview">
+      <span>{{ selectedFile.name }}</span>
+      <button (click)="removeFile()">×</button>
+    </div>
+    
+    <div class="input-group">
+      <div class="file-upload">
+        <input type="file" (change)="onFileSelected($event)" #fileInput hidden>
+        <button (click)="fileInput.click()" title="Attach file">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15V3M12 3L8 7M12 3L16 7M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <input [(ngModel)]="newMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()">
+      
+      <button class="send-button" (click)="sendMessage()" [disabled]="!newMessage.trim() && !selectedFile" title="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
